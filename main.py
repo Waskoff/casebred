@@ -17,17 +17,13 @@ word_unique = []
 for word in words_txt:
     if word not in word_unique:
         word_unique.append(word)
-
+dictionary = {}
 for word in word_unique:
-    word_to_pop = words_txt
-    next_words = []
-    try:
-        while word_to_pop.index(word) != -1:
-            try:
-                next_words.append(word_to_pop[word_to_pop.index(word)+1])
-                word_to_pop.pop(word_to_pop.index(word))
-            except IndexError:
-                stop = True
-    except ValueError:
-        stop = True
-    print(word,next_words)
+    next_word = []
+    n = words_txt.count(word)
+    for num in range(n):
+        if words_txt.index(word, num)+1 < len(words_txt):
+            next_word.append(words_txt[words_txt.index(word, num)+1])
+            words_txt.remove(words_txt[words_txt.index(word)])
+    dictionary[word] = next_word
+print(dictionary)
