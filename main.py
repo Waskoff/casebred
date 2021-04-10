@@ -13,5 +13,12 @@ for char in txt:
     if char in symbols and txt[txt.find(char)-1] == ' ':
         txt = txt[:txt.find(char)-1] + txt[txt.find(char):]
 words_txt = txt.split()
+words_txt2 = words_txt.copy()
 
 print(words_txt)
+word_dict = {}
+a = []
+
+for word in words_txt:
+    if word not in words_txt:
+        word_dict[word] = a
