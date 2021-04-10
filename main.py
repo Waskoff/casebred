@@ -13,6 +13,7 @@ for char in txt:
     if char in symbols and txt[txt.find(char)-1] == ' ':
         txt = txt[:txt.find(char)-1] + txt[txt.find(char):]
 words_txt = txt.split()
+words_txt_2 = words_txt.copy()
 word_unique = []
 for word in words_txt:
     if word not in word_unique:
@@ -27,3 +28,13 @@ for word in word_unique:
             words_txt.remove(words_txt[words_txt.index(word)])
     dictionary[word] = next_word
 print(dictionary)
+
+word_upper = []
+for el in words_txt_2:
+    if el[0].isupper():
+        word_upper.append(el)
+print(word_upper)
+
+import random
+
+num_sent = int(input('Введите колличество генерируемых предложений'))
