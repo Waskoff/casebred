@@ -17,7 +17,7 @@ word_unique = []
 for word in words_txt:
     if word not in word_unique:
         word_unique.append(word)
-dict = {}
+dictionary = {}
 for word in word_unique:
     next_word = []
     n = words_txt.count(word)
@@ -25,6 +25,5 @@ for word in word_unique:
         if words_txt.index(word, num)+1 < len(words_txt):
             next_word.append(words_txt[words_txt.index(word, num)+1])
             words_txt.remove(words_txt[words_txt.index(word)])
-
-    dict[word] = next_word
-print(dict)
+    dictionary[word] = next_word
+print(dictionary)
