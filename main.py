@@ -35,6 +35,33 @@ for el in words_txt_2:
         word_upper.append(el)
 print(word_upper)
 
-import random
+from random import *
 
-num_sent = int(input('Введите колличество генерируемых предложений'))
+num_sent = int(input('Введите колличество генерируемых предложений: '))
+for i in range(num_sent):
+    w1 = choice(word_upper)
+    sent = [w1]
+    while len(sent) < 20:
+        try:
+            w1 = sent[-1]
+            w1 = choice(dictionary[w1])
+            sent.append(w1)
+        except:
+            if len(sent) < 5:
+                try:
+                    w1 = choice(dictionary[w1])
+                    sent.append(w1)
+                except:
+                    w1 = choice(word_upper)
+                    sent = [w1]
+            else:
+                break
+    if sent[-1][-1] in '.!?':
+        print(' '.join(sent))
+    elif sent[-1][-1] in ',':
+        sent[-1] = sent[-1][:-1]
+        print(' '.join(sent) + '.')
+    else:
+        print(' '.join(sent) + '.')
+
+
