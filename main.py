@@ -1,9 +1,7 @@
 """
-
 Case-study Бредогенератор
 Разработчики:
-Бикметов Э.Б. = 35%, Бычков К.А. = 35% , Кондрашов М.С. = 35%
-
+Бикметов Э.Б. = 40%, Бычков К.А. = 35% , Кондрашов М.С. = 35%
 """
 from random import *
 
@@ -42,7 +40,6 @@ dictionary = {}
 for word in word_unique:
     lst = []
     ind = words_txt_2.index(word)
-
     while ind != -1:
         try:
             ind = words_txt_2.index(word) + 1
@@ -50,6 +47,7 @@ for word in word_unique:
             del words_txt_2[ind - 1]
         except:
             ind = -1
+            words_txt_2 = words_txt.copy()
     if word[-1] in '.!?':
         lst = []
     dictionary[word] = lst
@@ -80,6 +78,7 @@ for i in range(num_sent):
                     sent = [w1]
             else:
                 break
+
     if sent[-1][-1] in '.!?':
         print(' '.join(sent))
     elif sent[-1][-1] in ',':
